@@ -1,5 +1,4 @@
 /* See LICENSE file for copyright and license details. */
-
 /* appearance */
 static const unsigned int borderpx  = 6;        /* border pixel of windows */
 static const Gap default_gap        = {.isgap = 1, .realgap = 10, .gappx = 10};
@@ -64,6 +63,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *appmenu[] = { "apps", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *screenshot[]  = { "screenclip", NULL };
 static const char *browser[]  = { "firefox", NULL };
@@ -71,6 +71,7 @@ static const char *browser[]  = { "firefox", NULL };
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_o,      spawn,          {.v = appmenu } },
 	{ MODKEY|ShiftMask,             XK_c,      reload,         {0} },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = screenshot } },
