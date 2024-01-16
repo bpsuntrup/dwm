@@ -41,14 +41,21 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 #include "fibonacci.c"
+#include "cards.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 	{ "[@]",      spiral },
-	{ "[\\]",      dwindle },
+	{ "||[]",      cards },
 };
+
+/* rotate through layouts */
+int nlt = 5;
+int cur_lt = 0;
+void inclayout(const Arg *arg) { cur_lt = (cur_lt + 1) % nlt; setlayout(&((Arg){.v = &layouts[cur_lt]})); }
+void declayout(const Arg *arg) { cur_lt = (cur_lt + 1 + nlt) % nlt; setlayout(&((Arg){.v = &layouts[cur_lt]})); }
 
 /* key definitions */
 #define MODKEY Mod4Mask
@@ -91,6 +98,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY|ShiftMask,             XK_r,      setlayout,      {.v = &layouts[4]} },
+	{ MODKEY|ShiftMask,             XK_j,      inclayout,      {0} },
+	{ MODKEY|ShiftMask,             XK_k,      declayout,      {0} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
@@ -114,6 +123,9 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_e,      quit,           {0} },
 };
+/* TODO: mod+shift+{h,l} should switch tags, like tmux
+ *       mod+shift+{m} should toggle monicle and previous layout
+ */
 
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
