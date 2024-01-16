@@ -4,8 +4,8 @@ VERSION = 6.4
 # Customize below to fit your system
 
 # paths
-PREFIX = ${HOME}
-MANPREFIX = ${XDG_DATA_HOME}/man
+PREFIX = ${HOME}/.local
+MANPREFIX = ${HOME}/.local/share/man
 
 X11INC = /usr/include/X11
 X11LIB = /usr/lib
