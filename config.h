@@ -53,7 +53,7 @@ static const Layout layouts[] = {
 int nlt = 4;
 int cur_lt = 0;
 void inclayout(const Arg *arg) { cur_lt = (cur_lt + 1) % nlt; setlayout(&((Arg){.v = &layouts[cur_lt]})); }
-void declayout(const Arg *arg) { cur_lt = (cur_lt + 1 + nlt) % nlt; setlayout(&((Arg){.v = &layouts[cur_lt]})); }
+void declayout(const Arg *arg) { cur_lt = (cur_lt - 1 + nlt) % nlt; setlayout(&((Arg){.v = &layouts[cur_lt]})); }
 
 /* key definitions */
 #define MODKEY Mod4Mask
