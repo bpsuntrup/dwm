@@ -72,6 +72,7 @@ static const char *appmenu[] = { "apps", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *screenshot[]  = { "screenclip", NULL };
 static const char *browser[]  = { "firefox", NULL };
+static const char *zzzcmd[] = { "sudo", "zzz", "NULL" };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -81,6 +82,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = screenshot } },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = browser } },
+	{ MODKEY|ShiftMask,             XK_z,      spawn,          {.v = zzzcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
