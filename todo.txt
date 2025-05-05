@@ -1,0 +1,20 @@
+https://dwm.suckless.org/patches/centeredmaster/
+https://dwm.suckless.org/patches/gridmode/
+
+https://dwm.suckless.org/patches/dwmc/, or
+https://dwm.suckless.org/patches/fsignal/
+https://dwm.suckless.org/patches/allowkillrule/
+
+https://dwm.suckless.org/patches/cfacts/
+https://dwm.suckless.org/patches/focusonclick/
+https://dwm.suckless.org/patches/dragmfact/
+
+either https://dwm.suckless.org/patches/dynamicswallow/, or
+https://dwm.suckless.org/patches/swallow/
+
+Maybe?
+https://dwm.suckless.org/patches/cool_autostart/
+https://dwm.suckless.org/patches/launcher/
+
+Try:
+https://dwm.suckless.org/patches/center_first_window/
