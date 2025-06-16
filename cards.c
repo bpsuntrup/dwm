@@ -14,7 +14,7 @@ cards(Monitor *mon) {
 	
 	for(i = 1, c = nexttiled(mon->clients); c; c = nexttiled(c->next)) {
 		resize(c, 
-            ((n-i) * (gap + c->bw)) + mon->gap->gappx,  
+            ((n-i) * (gap + c->bw)) + mon->wx + mon->gap->gappx,  
             ((n-i) * (gap + c->bw)) + mon->wy + mon->gap->gappx,
             nw - (n * (gap + c->bw)),
             nh - (n * (gap + c->bw)),
