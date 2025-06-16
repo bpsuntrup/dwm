@@ -41,12 +41,15 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 #include "cards.c"
+#include "centeredmaster.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function,  first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[]=",      tile }, 
 	{ "||[]",      cards },
 	{ "[M]",      monocle },
+	{ "iIi",      centeredmaster },
+	{ "iFi",      centeredfloatingmaster },
 };
 
 /* rotate through layouts */
@@ -95,6 +98,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_c,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[4]} },
+	{ MODKEY,                       XK_v,      setlayout,      {.v = &layouts[5]} },
 	{ MODKEY|ShiftMask,             XK_j,      inclayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_k,      declayout,      {0} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
