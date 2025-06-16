@@ -12,6 +12,9 @@ https://dwm.suckless.org/patches/dragmfact/
 either https://dwm.suckless.org/patches/dynamicswallow/, or
 https://dwm.suckless.org/patches/swallow/
 
+https://dwm.suckless.org/patches/layoutmenu/
+https://dwm.suckless.org/patches/attachbottom/
+
 Maybe?
 https://dwm.suckless.org/patches/cool_autostart/
 https://dwm.suckless.org/patches/launcher/
