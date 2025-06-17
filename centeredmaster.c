@@ -12,7 +12,7 @@ centeredmaster(Monitor *m)
 	/* initialize areas */
 	mw = m->ww;
 	mx = 0;
-	my = 0 + m->gap->gappx;
+	my = 0;
 	tw = mw;
 
 	if (n > m->nmaster) {
@@ -35,16 +35,16 @@ centeredmaster(Monitor *m)
 		/* nmaster clients are stacked vertically, in the center
 		 * of the screen */
 		h = (m->wh - my) / (MIN(n, m->nmaster) - i);
-		resize(c, m->wx + mx, m->wy + my, mw - (2*c->bw),
-		       h - (2*c->bw), 0);
-		my += HEIGHT(c) - m->gap->gappx;
+		resize(c, m->wx + mx, m->wy + my + m->gap->gappx, mw - (2*c->bw) - m->gap->gappx/2,
+		       h - (2*c->bw) - 2*m->gap->gappx, 0);
+		my += HEIGHT(c) + m->gap->gappx;
 	} else {
 		/* stack clients are stacked vertically */
 		if ((i - m->nmaster) % 2 ) {
 			h = (m->wh - ety - 2*m->gap->gappx) / ( (1 + n - i) / 2) - m->gap->gappx;
 			resize(c, m->wx + m->gap->gappx, m->wy + m->gap->gappx + ety, tw - (2*c->bw) - m->gap->gappx / 2,
 			       h - (2*c->bw), 0);
-			ety += HEIGHT(c) + m->gap->gappx;
+			ety += HEIGHT(c) - 3*m->gap->gappx;
 		} else {
 			h = (m->wh - oty - 2*m->gap->gappx) / ((1 + n - i) / 2) - m->gap->gappx;
 			resize(c, m->wx + mx + mw + m->gap->gappx / 2, m->wy + oty + m->gap->gappx,
