@@ -44,7 +44,7 @@ centeredmaster(Monitor *m)
 			h = (m->wh - ety - 2*m->gap->gappx) / ( (1 + n - i) / 2) - m->gap->gappx;
 			resize(c, m->wx + m->gap->gappx, m->wy + m->gap->gappx + ety, tw - (2*c->bw) - m->gap->gappx / 2,
 			       h - (2*c->bw), 0);
-			ety += HEIGHT(c) - 3*m->gap->gappx;
+			ety += HEIGHT(c) + m->gap->gappx;
 		} else {
 			h = (m->wh - oty - 2*m->gap->gappx) / ((1 + n - i) / 2) - m->gap->gappx;
 			resize(c, m->wx + mx + mw + m->gap->gappx / 2, m->wy + oty + m->gap->gappx,
